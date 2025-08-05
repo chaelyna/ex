@@ -1,44 +1,282 @@
-/* ex/css/index.css */
-
-/* 1) 파일 인코딩 선언: 반드시 최상단에! */
 @charset "UTF-8";
 
-/* 2) Reset & Box-Sizing */
+/* ─── GGotmangul210 폰트페이스 ─── */
+@font-face {
+    font-family: '210 GGotmangul';
+    src: url('../fonts/GGOTMANGUL210.woff2') format('woff2'),
+        url('../fonts/GGOTMANGUL210.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+
+/* ─── CSS Variables ─── */
+:root {
+    --primary-color: #FF7332;
+    --bg-light: #fafafa;
+    --text-dark: #212121;
+}
+
+/* ─── 기본 리셋 ─── */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* 3) 본문 전체 스타일 */
+/* ─── 전체 레이아웃 ─── */
 body {
-    /* 화면 중앙 정렬 */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-
-    /* 배경 그라데이션 */
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-
-    /* 텍스트 스타일 */
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-size: 2rem;
-    line-height: 1.4;
-    letter-spacing: 0.05em;
-    color: #ffffff;
-    text-align: center;
+    font-family: 'Segoe UI', sans-serif;
+    background: var(--bg-light);
+    color: var(--text-dark);
 }
 
-/* 4) (선택) 메시지를 의미론적 태그로 감싸고 싶다면,
-   HTML을 아래처럼 바꾸고 이 h1 스타일을 활성화하세요.
+.container {
+    display: flex;
+    align-items: flex-start;
+    width: 100%;
+    min-width: 1200px;
+    height: 100vh;
+}
 
-<body>
-  <h1>Hellow world! test message</h1>
-</body>
-*/
-h1 {
-    font-size: 3rem;
-    text-transform: uppercase;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+/* ─── 좌측 사이드바 ─── */
+.sidebar {
+    flex: 0 0 400px;
+    background: #f5f5f5;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 75px;
+}
+
+.main-column {
+    display: flex;
+    flex-direction: column;
+    padding: 0 50px;
+
+}
+
+/* 프로필 사진 */
+.profile-pic {
+    width: 280.78px;
+    height: 384.55px;
+    margin: 0 auto 20px;
+    overflow: hidden;
+    border-radius: 50%;
+    border: 4px solid var(--primary-color);
+}
+
+.profile-pic img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.text1 {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+}
+
+/* ─── chaelyna kim (영문) ─── */
+.name-en {
+    color: #FF7332;
+    font-family: 'Qwigley', cursive;
+    font-size: 50px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+/* ─── 챌킴 래퍼 1: 회전 + 주황 배경 ─── */
+.name-ko-wrapper {
+    display: flex;
+    transform: rotate(-6.378deg);
+    padding-bottom: 2px;
+    flex-direction: column;
+    align-items: flex-start;
+    background: var(--primary-color);
+}
+
+/* ─── 챌킴 래퍼 2: 내부 박스 (검정 배경) ─── */
+.name-ko-box {
+    display: flex;
+    padding: 3px 10px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    background: var(--text-dark);
+}
+
+/* ─── 챌킴 텍스트 스타일 ─── */
+.name-ko {
+    color: #FFF;
+    font-family: '210 GGotmangul', sans-serif;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+/* ─── 연락처 (Arimo Hebrew Subset Italic) ─── */
+.contact {
+    list-style: none;
+    margin-bottom: 20px;
+}
+
+.contact li {
+    font-family: 'Arimo', sans-serif;
+    font-style: italic;
+    font-size: .95rem;
+    color: var(--text-dark);
+    margin: 6px 0;
+}
+
+.contact li strong {
+    font-weight: bold;
+}
+
+/* ─── Visitor’s Book ─── */
+.visitor-book {
+    background: #fff;
+    padding: 16px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    margin-top: 20px;
+}
+
+.visitor-book h3 {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+}
+
+.entry-form {
+    display: flex;
+    margin-bottom: 12px;
+}
+
+.entry-form input {
+    flex: 1;
+    padding: 6px;
+    border: 1px solid #ccc;
+    border-radius: 4px 0 0 4px;
+}
+
+.entry-form button {
+    padding: 6px 10px;
+    border: none;
+    background: var(--primary-color);
+    color: #fff;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+}
+
+.entries {
+    max-height: 100px;
+    overflow-y: auto;
+}
+
+.entries p {
+    font-size: .8rem;
+    color: #666;
+    margin-bottom: 6px;
+}
+
+/* ─── 우측 메인 콘텐츠 ─── */
+.content {
+    flex: 1;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+/* 섹션 제목 (GGotmangul210, 30pt, 밑줄) */
+.content h2 {
+    font-family: '210 GGotmangul', sans-serif;
+    font-size: 30pt;
+    color: var(--text-dark);
+    display: inline-block;
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: 4px;
+}
+
+/* I Like… 목록 */
+.likes {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    align-self: stretch;
+
+}
+
+.like.text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    width: 240px;
+}
+
+.likes-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 16px;
+    align-items: flex-start;
+}
+
+.likes-list span {
+    color: #fff;
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-size: .85rem;
+}
+
+/* 공통 캐러셀 */
+.carousel {
+    display: flex;
+    gap: 12px;
+    overflow-x: auto;
+    padding-bottom: 8px;
+    scroll-behavior: smooth;
+}
+
+.carousel::-webkit-scrollbar {
+    height: 6px;
+}
+
+.carousel::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, .2);
+    border-radius: 3px;
+}
+
+/* 아이콘 캐러셀 */
+.icons-carousel img {
+    flex: 0 0 auto;
+    height: 295px;
+    width: auto;
+    object-fit: cover;
+    border-radius: 8px;
+    transition: transform .2s;
+}
+
+.icons-carousel img:hover {
+    transform: scale(1.05);
+}
+
+/* 여행 사진 캐러셀 */
+.trip-carousel img {
+    flex: 0 0 auto;
+    height: 295px;
+    width: auto;
+    object-fit: cover;
+    border-radius: 6px;
+    transition: transform .2s, box-shadow .2s;
+}
+
+.trip-carousel img:hover {
+    transform: scale(1.03);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
