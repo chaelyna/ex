@@ -1,0 +1,44 @@
+/* ex/css/index.css */
+
+/* 1) 파일 인코딩 선언: 반드시 최상단에! */
+@charset "UTF-8";
+
+/* 2) Reset & Box-Sizing */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* 3) 본문 전체 스타일 */
+body {
+    /* 화면 중앙 정렬 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+
+    /* 배경 그라데이션 */
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+
+    /* 텍스트 스타일 */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 2rem;
+    line-height: 1.4;
+    letter-spacing: 0.05em;
+    color: #ffffff;
+    text-align: center;
+}
+
+/* 4) (선택) 메시지를 의미론적 태그로 감싸고 싶다면,
+   HTML을 아래처럼 바꾸고 이 h1 스타일을 활성화하세요.
+
+<body>
+  <h1>Hellow world! test message</h1>
+</body>
+*/
+h1 {
+    font-size: 3rem;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
