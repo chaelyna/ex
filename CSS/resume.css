@@ -1,0 +1,28 @@
+/* resume.css: 기존 index.css 위에 덮어씌울 중앙 정렬 규칙만 모아두세요 */
+
+.resume-content {
+    /* 네비 아래부터 화면 가득 채우면서 중앙에 배치 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 64px);
+    /* nav 높이(약 64px)를 뺀 만큼 */
+    padding-top: 0;
+    /* nav와 겹치지 않도록 필요 시 조정 */
+}
+
+.resume-placeholder {
+    /* 이미지 블록 자체도 중앙 정렬 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.resume-image {
+    /* 화면 크기에 맞춰 높이/너비 자동 조정 */
+    width: 330px;
+    height: 330px;
+    object-fit: contain;
+    /* 또는 cover, 필요에 따라 조절 */
+}

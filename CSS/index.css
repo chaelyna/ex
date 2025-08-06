@@ -1,10 +1,9 @@
 @charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Playwrite+AU+NSW&display=swap');
 
 /* ─── GGotmangul210 폰트페이스 ─── */
 @font-face {
-    font-family: '210 GGotmangul';
-    src: url('../fonts/GGOTMANGUL210.woff2') format('woff2'),
-        url('../fonts/GGOTMANGUL210.woff') format('woff');
+    font-family: 'Noto Sans CJK KR';
     font-weight: 400;
     font-style: normal;
 }
@@ -25,7 +24,7 @@
 
 /* ─── 전체 레이아웃 ─── */
 body {
-    font-family: 'Segoe UI', sans-serif;
+    font-family: 'Noto Sans CJK KR', sans-serif;
     background: var(--bg-light);
     color: var(--text-dark);
 }
@@ -41,13 +40,17 @@ body {
 /* ─── 좌측 사이드바 ─── */
 .sidebar {
     flex: 0 0 400px;
-    background: #f5f5f5;
+    background: #F6F6F6;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     gap: 75px;
+    min-height: 100vh;
+    padding-top: 60px;
+    /* ← 이 값 조절해서 내려줌 */
 }
+
 
 .main-column {
     display: flex;
@@ -62,8 +65,6 @@ body {
     height: 384.55px;
     margin: 0 auto 20px;
     overflow: hidden;
-    border-radius: 50%;
-    border: 4px solid var(--primary-color);
 }
 
 .profile-pic img {
@@ -82,8 +83,8 @@ body {
 /* ─── chaelyna kim (영문) ─── */
 .name-en {
     color: #FF7332;
-    font-family: 'Qwigley', cursive;
-    font-size: 50px;
+    font-family: 'Playwrite AU NSW';
+    font-size: 28px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
@@ -111,12 +112,12 @@ body {
 
 /* ─── 챌킴 텍스트 스타일 ─── */
 .name-ko {
-    color: #FFF;
-    font-family: '210 GGotmangul', sans-serif;
-    font-size: 30px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
+    color: #FFF !important;
+    font-family: 'CookieRun' !important;
+    font-size: 25px !important;
+    font-style: normal !important;
+    font-weight: 700 !important;
+    line-height: normal !important;
 }
 
 /* ─── 연락처 (Arimo Hebrew Subset Italic) ─── */
@@ -126,8 +127,8 @@ body {
 }
 
 .contact li {
-    font-family: 'Arimo', sans-serif;
-    font-style: italic;
+    font-family: 'Noto Sans CJK KR', sans-serif;
+    /* font-style: italic; */
     font-size: .95rem;
     color: var(--text-dark);
     margin: 6px 0;
@@ -139,49 +140,83 @@ body {
 
 /* ─── Visitor’s Book ─── */
 .visitor-book {
-    background: #fff;
-    padding: 16px;
-    border: 1px solid #ddd;
-    border-radius: 6px;
-    margin-top: 20px;
-}
-
-.visitor-book h3 {
-    font-size: 1.1rem;
-    margin-bottom: 10px;
-}
-
-.entry-form {
     display: flex;
-    margin-bottom: 12px;
+    flex-direction: column;
+    align-items: center;
+    /* 전체 박스만 가운데 */
+    justify-content: center;
+    width: 400px;
+    padding: 0 50px;
 }
 
-.entry-form input {
+
+
+.visitor-title {
+    align-self: flex-start;
+    /* ← 왼쪽 정렬! */
+    color: #FF7332;
+    font-family: 'Playwrite AU NSW', cursive;
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-bottom: 0;
+    margin-left: 4px;
+}
+
+.visitor-form {
+    display: flex;
+    align-items: center;
+    align-self: flex-start;
+    border: 1.5px solid #FF7332;
+    border-radius: 24px;
+    padding: 3px 12px 3px 20px;
+    background: #fff;
+    margin-top: 10px;
+    max-width: 300px;
+    width: 100%;
+    gap: 0;
+}
+
+.visitor-form input {
     flex: 1;
-    padding: 6px;
-    border: 1px solid #ccc;
-    border-radius: 4px 0 0 4px;
-}
-
-.entry-form button {
-    padding: 6px 10px;
     border: none;
-    background: var(--primary-color);
-    color: #fff;
-    border-radius: 0 4px 4px 0;
+    outline: none;
+    font-family: 'Noto Sans CJK KR', sans-serif;
+    font-size: 16px;
+    color: #000;
+    background: transparent;
+    padding: 5px 0;
+}
+
+.visitor-send {
+    display: flex;
+    align-items: center;
+    align-self: stretch;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 50px;
+    background: #FF7332;
     cursor: pointer;
+    margin-left: 0;
+    /* ★ margin이 있었다면 0으로 */
 }
 
-.entries {
-    max-height: 100px;
-    overflow-y: auto;
+/* 크기 자동, width/height는 주지 않음 */
+
+
+.visitor-send:hover {
+    background: #ff5100;
 }
 
-.entries p {
-    font-size: .8rem;
-    color: #666;
-    margin-bottom: 6px;
+.visitor-send .icon {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+    display: block;
+    /* 아래 필터는 아이콘이 검정색이면 흰색으로! 아니면 생략 */
 }
+
 
 /* ─── 우측 메인 콘텐츠 ─── */
 .content {
@@ -194,7 +229,7 @@ body {
 
 /* 섹션 제목 (GGotmangul210, 30pt, 밑줄) */
 .content h2 {
-    font-family: '210 GGotmangul', sans-serif;
+    font-family: 'Noto Sans CJK KR', sans-serif;
     font-size: 30pt;
     color: var(--text-dark);
     display: inline-block;
@@ -207,7 +242,7 @@ body {
     display: flex;
     align-items: flex-start;
     gap: 16px;
-    align-self: stretch;
+    I Like… align-self: stretch;
 
 }
 
@@ -252,6 +287,7 @@ body {
     border-radius: 3px;
 }
 
+
 /* 아이콘 캐러셀 */
 .icons-carousel img {
     flex: 0 0 auto;
@@ -267,6 +303,31 @@ body {
 }
 
 /* 여행 사진 캐러셀 */
+.trip {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    /* 원하는 만큼 */
+}
+
+.trip.text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    width: 240px;
+    /* I Like…와 동일하게 */
+}
+
+.trip .likes-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 16px;
+    align-items: flex-start;
+}
+
+
 .trip-carousel img {
     flex: 0 0 auto;
     height: 295px;
@@ -279,4 +340,62 @@ body {
 .trip-carousel img:hover {
     transform: scale(1.03);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* ─── 네비게이션 바 ─── */
+.navbar {
+    background-color: #fff;
+    border-bottom: 1px solid #ddd;
+    padding: 16px 40px;
+}
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+    gap: 32px;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar li a {
+    text-decoration: none;
+    color: #333;
+    font-size: 22px;
+    font-weight: 600;
+    font-family: 'Noto Sans CJK JP', sans-serif;
+    /* 원하면 KR로 */
+    transition: color 0.2s ease;
+}
+
+.navbar li a:hover {
+    color: var(--primary-color);
+}
+
+.navbar .active a {
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+
+.title-Playwrite {
+    font-family: 'Playwrite AU NSW', cursive !important;
+    font-size: 26px !important;
+    color: var(--primary-color) !important;
+    border: none !important;
+    padding-bottom: 0 !important;
+    font-style: normal !important;
+    font-weight: 400 !important;
+}
+
+.entries {
+    align-self: flex-start;
+    /* 부모 .visitor-book의 align-items: center 에서 벗어나 왼쪽 정렬 */
+    width: 100%;
+    max-width: 300px;
+    /* visitor-form 과 같은 너비를 원하면 form과 동일하게 설정 */
+    margin-top: 10px;
+    /* 원하면 간격 조절 */
+    text-align: left;
+    /* 텍스트도 왼쪽 정렬 */
 }

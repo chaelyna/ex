@@ -6,13 +6,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>chaelyna kim Profile & Gallery</title>
 
-    <!-- Google Fonts: Qwigley + Arimo Hebrew Subset Italic -->
-    <link href="https://fonts.googleapis.com/css2?family=Qwigley&family=Arimo:ital@1&display=swap" rel="stylesheet">
+    <!-- Playwrite AU NSW 불러오기 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playwrite+AU+NSW&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="/ex/CSS/index.css">
 </head>
 
 <body>
+
+    <nav class="navbar">
+        <ul>
+            <li class="active"><a href="index.html">About</a></li>
+            <li><a href="html/works.html">Works</a></li>
+            <li><a href="html/resume.html">Resume</a></li>
+        </ul>
+    </nav>
+
+
+
     <div class="container">
 
         <!-- ─── 좌측 사이드바 ─── -->
@@ -47,17 +60,48 @@
             </div>
 
 
-            <!-- Visitor’s Book -->
+            <!-- ─── Visitor’s Book 교체 후 HTML ─── -->
             <div class="visitor-book">
-                <h3>Visitor’s Book</h3>
-                <div class="entry-form">
-                    <input type="text" placeholder="Leave a note…">
-                    <button>→</button>
-                </div>
-                <div class="entries">
-                    <p>2025.08.25 13:55 gogo 왔다감</p>
+                <div class="visitor-title">visitor’s book</div>
+                <form id="visitor-form" class="visitor-form">
+                    <input id="visitor-input" type="text" placeholder="방명록을 남겨보세요." required />
+                    <button type="submit" class="visitor-send">
+                        <img src="images/send.png" alt="보내기" class="icon">
+                    </button>
+                </form>
+                <div id="entries" class="entries">
+                    <!-- 여기에 새로 남긴 글이 <p>로 추가됩니다 -->
                 </div>
             </div>
+
+            <!-- ─── 인라인 스크립트 ─── -->
+            <script>
+                // YYYY.MM.DD HH:MM 포맷 함수
+                function formatTimestamp(d) {
+                    const pad = n => n.toString().padStart(2, '0');
+                    return d.getFullYear() + '.' + pad(d.getMonth() + 1) + '.' + pad(d.getDate()) + ' ' +
+                        pad(d.getHours()) + ':' + pad(d.getMinutes());
+                }
+
+                document.getElementById('visitor-form').addEventListener('submit', function (e) {
+                    e.preventDefault();
+                    const input = document.getElementById('visitor-input');
+                    const text = input.value.trim();
+                    if (!text) return;
+
+                    const p = document.createElement('p');
+                    p.textContent = formatTimestamp(new Date()) + ' ' + text;
+                    document.getElementById('entries').appendChild(p);
+
+                    input.value = '';
+                    input.focus();
+                    // 스크롤 맨 아래로
+                    const ent = document.getElementById('entries');
+                    ent.scrollTop = ent.scrollHeight;
+                });
+            </script>
+
+
         </aside>
 
         <!-- ─── 우측 메인 콘텐츠 ─── -->
@@ -65,7 +109,7 @@
             <!-- I Like… -->
             <section class="likes">
                 <div class="like text">
-                    <h2>I Like…</h2>
+                    <h2 class="title-Playwrite">I like…</h2>
                     <div class="likes-list">
                         <div class="name-ko-wrapper">
                             <div class="name-ko-box">
@@ -129,13 +173,26 @@
                 </div>
             </section>
 
-            <!-- A Summer Trip -->
+            <!-- ─── A Summer Trip 섹션 (수정 후) ─── -->
             <section class="trip">
-                <h2>A Summer Trip</h2>
-                <div class="likes-list">
-                    <span>여수</span>
-                    <span>담양</span>
+                <!-- 왼쪽: 제목 + 리스트 -->
+                <div class="trip text">
+                    <h2 class="title-Playwrite">a summer trip</h2>
+                    <div class="likes-list">
+                        <div class="name-ko-wrapper">
+                            <div class="name-ko-box">
+                                <span class="name-ko">여수</span>
+                            </div>
+                        </div>
+                        <div class="name-ko-wrapper">
+                            <div class="name-ko-box">
+                                <span class="name-ko">담양</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+
+                <!-- 오른쪽: 이미지 캐러셀 -->
                 <div class="carousel trip-carousel">
                     <img src="images/담양1.png" alt="trip1">
                     <img src="images/담양2.png" alt="trip2">
@@ -148,8 +205,8 @@
                     <img src="images/카페.png" alt="trip9">
                 </div>
             </section>
-        </main>
-    </div>
+
+
 </body>
 
 </html>
