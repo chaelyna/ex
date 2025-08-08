@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>카카오 선물샵</title>
+    <link rel="stylesheet" href="/ex/CSS/kioskSystem2.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            margin: 0;
+            background: #fffbe0;
+            color: #333;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .page-title {
+            font-size: 24px;
+            margin: 16px 0;
+        }
+
+        .sub-banner {
+            width: 100%;
+            max-width: 1200px;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .swiper {
+            padding: 20px;
+        }
+
+        .swiper-slide {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 24px;
+        }
+
+        .product-card {
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            width: 250px;
+            padding: 16px;
+            text-align: left;
+            box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .product-img {
+            width: 100%;
+            border-radius: 8px;
+        }
+
+        .product-card h3,
+        .product-card p,
+        .product-card strong {
+            margin-left: 4px;
+        }
+
+        .product-card h3 {
+            font-size: 18px;
+            margin: 12px 0 4px;
+        }
+
+        .product-card p {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 4px;
+        }
+
+        .product-card strong {
+            font-size: 16px;
+            color: #000;
+        }
+
+        .icons {
+            display: flex;
+            justify-content: flex-start;
+            gap: 12px;
+            padding-left: 4px;
+            margin-top: 8px;
+        }
+
+        .icon {
+            width: 28px;
+            height: 28px;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .icon:hover {
+            transform: scale(1.1);
+        }
+
+        .cart {
+            width: 100%;
+            max-width: 700px;
+            margin: 40px auto;
+            padding: 20px;
+            background: white;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+        }
+
+        .cartItem {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 8px;
+            gap: 10px;
+        }
+
+        .cartItem span {
+            flex: 1;
+            line-height: 1.2;
+        }
+
+        .cartItem button {
+            font-family: 'Noto Sans KR', sans-serif;
+            font-weight: bold;
+            background: #ffe400;
+            border: none;
+            padding: 4px 10px;
+            border-radius: 6px;
+            cursor: pointer;
+            color: #333;
+            transition: background 0.2s, transform 0.2s;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .cartItem button:hover {
+            background: #ffd000;
+            transform: translateY(-2px);
+        }
+
+        .total {
+            text-align: right;
+            font-weight: bold;
+            font-size: 18px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1 class="page-title">🍌 카카오 선물샵 🍌</h1>
+        <img src="/ex/images/banner.jpg" alt="미니언즈 배너" class="sub-banner" />
+    </header>
+
+    <!-- 상품 슬라이드 시작 -->
+    <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+
+            <!-- 슬라이드 1 -->
+            <div class="swiper-slide">
+                <div class="product-card" data-name="토스터기" data-price="45900">
+                    <img src="/ex/images/토스터기.png" alt="토스터기" class="product-img" />
+                    <h3>토스터기</h3>
+                    <p>유니버셜 미니언즈 토스터기</p>
+                    <strong>45,900원</strong>
+                    <div class="icons">
+                        <img src="/ex/images/heart.png" class="icon heart-icon" />
+                        <img src="/ex/images/cart.png" class="icon cart-icon" />
+                    </div>
+                </div>
+
+                <div class="product-card" data-name="핸디선풍기" data-price="27900">
+                    <img src="/ex/images/핸디선풍기.png" alt="핸디선풍기" class="product-img" />
+                    <h3>핸디선풍기</h3>
+                    <p>미니언즈 휴대용 저소음 핸디선풍기</p>
+                    <strong>27,900원</strong>
+                    <div class="icons">
+                        <img src="/ex/images/heart.png" class="icon heart-icon" />
+                        <img src="/ex/images/cart.png" class="icon cart-icon" />
+                    </div>
+                </div>
+
+                <div class="product-card" data-name="모니터 방향제" data-price="22000">
+                    <img src="/ex/images/모니터 방향제.png" alt="모니터 방향제" class="product-img" />
+                    <h3>모니터 방향제</h3>
+                    <p>유니버셜 미니언즈 모니터 방향제</p>
+                    <strong>22,000원</strong>
+                    <div class="icons">
+                        <img src="/ex/images/heart.png" class="icon heart-icon" />
+                        <img src="/ex/images/cart.png" class="icon cart-icon" />
+                    </div>
+                </div>
+
+                <div class="product-card" data-name="블로키 미니언즈" data-price="12000">
+                    <img src="/ex/images/블로키 미니언즈.png" alt="블로키 미니언즈" class="product-img" />
+                    <h3>블로키 미니언즈</h3>
+                    <p>블로키 미니언즈 슈트어트 PC03</p>
+                    <strong>12,000원</strong>
+                    <div class="icons">
+                        <img src="/ex/images/heart.png" class="icon heart-icon" />
+                        <img src="/ex/images/cart.png" class="icon cart-icon" />
+                    </div>
+                </div>
+            </div>
+
+            <!-- 슬라이드 2 -->
+            <div class="swiper-slide">
+                <div class="product-card" data-name="레고 미니언즈" data-price="34900">
+                    <img src="/ex/images/레고 미니언즈.png" alt="레고 미니언즈" class="product-img" />
+                    <h3>레고 미니언즈</h3>
+                    <p>미니언즈와 바나나 카/레고 정품</p>
+                    <strong>34,900원</strong>
+                    <div class="icons">
+                        <img src="/ex/images/heart.png" class="icon heart-icon" />
+                        <img src="/ex/images/cart.png" class="icon cart-icon" />
+                    </div>
+                </div>
+
+                <div class="product-card" data-name="액막이 명태" data-price="20000">
+                    <img src="/ex/images/액막이.png" alt="액막이 명태" class="product-img" />
+                    <h3>액막이 명태</h3>
+                    <p>행운과 평안을 기원한 피규어형 액막이</p>
+                    <strong>20,000원</strong>
+                    <div class="icons">
+                        <img src="/ex/images/heart.png" class="icon heart-icon" />
+                        <img src="/ex/images/cart.png" class="icon cart-icon" />
+                    </div>
+                </div>
+
+                <div class="product-card" data-name="보조배터리" data-price="36900">
+                    <img src="/ex/images/배터리.png" alt="보조배터리" class="product-img" />
+                    <h3>보조배터리</h3>
+                    <p>춘식이 고속충전 보조배터리 (10000mAh)</p>
+                    <strong>36,900원</strong>
+                    <div class="icons">
+                        <img src="/ex/images/heart.png" class="icon heart-icon" />
+                        <img src="/ex/images/cart.png" class="icon cart-icon" />
+                    </div>
+                </div>
+
+                <div class="product-card" data-name="송풍구 피규어" data-price="12000">
+                    <img src="/ex/images/새차.png" alt="송풍구 피규어" class="product-img" />
+                    <h3>송풍구 피규어</h3>
+                    <p>안전운전 기원 냥냥 피규어 키링</p>
+                    <strong>12,000원</strong>
+                    <div class="icons">
+                        <img src="/ex/images/heart.png" class="icon heart-icon" />
+                        <img src="/ex/images/cart.png" class="icon cart-icon" />
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="swiper-pagination"></div>
+    </div>
+
+    <!-- 장바구니 -->
+    <section class="cart">
+        <h2>장바구니</h2>
+        <div id="cartItems"></div>
+        <h3 class="total">총합: <span id="totalAmount">0</span>원</h3>
+
+        <!-- ✅ 주문하기 버튼 추가 -->
+        <div class="order-area">
+            <button id="orderBtn" class="order-button">주문하기</button>
+
+        </div>
+    </section>
+
+    <!-- 스크립트 -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+        var swiper = new Swiper(".mySwiper", {
+            spaceBetween: 30,
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+        });
+    </script>
+    <script src="/ex/js/kioskSystem2.js"></script>
+</body>
+
+</html>
