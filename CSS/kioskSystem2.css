@@ -1,5 +1,96 @@
 @charset "UTF-8";
 
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Noto Sans KR', sans-serif;
+    margin: 0;
+    background: #fffbe0;
+    color: #333;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.page-title {
+    font-size: 24px;
+    margin: 16px 0;
+}
+
+
+
+
+.icons {
+    display: flex;
+    justify-content: flex-start;
+    gap: 12px;
+    padding-left: 4px;
+    margin-top: 8px;
+}
+
+.icon {
+    width: 28px;
+    height: 28px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.icon:hover {
+    transform: scale(1.1);
+}
+
+.cart {
+    width: 100%;
+    max-width: 700px;
+    margin: 40px auto;
+    padding: 20px;
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+}
+
+.cartItem {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    gap: 10px;
+}
+
+.cartItem span {
+    flex: 1;
+    line-height: 1.2;
+}
+
+.cartItem button {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: bold;
+    background: #ffe400;
+    border: none;
+    padding: 4px 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    color: #333;
+    transition: background 0.2s, transform 0.2s;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.cartItem button:hover {
+    background: #ffd000;
+    transform: translateY(-2px);
+}
+
+.total {
+    text-align: right;
+    font-weight: bold;
+    font-size: 18px;
+    margin-top: 20px;
+}
+
 body {
     font-family: 'Noto Sans KR', sans-serif;
     margin: 0;
@@ -18,26 +109,20 @@ header {
     margin: 16px 0;
 }
 
-.sub-banner {
+.mySwiper {
     width: 100%;
     max-width: 1200px;
+    height: 400px;
     display: block;
     margin: 0 auto;
+    padding-bottom: 40px;
 }
 
-.product-list {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 24px;
-    padding: 20px;
-}
 
 .product-card {
     background: white;
     border: 1px solid #ddd;
     border-radius: 10px;
-    width: 250px;
     padding: 16px;
     text-align: left;
     box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.05);
@@ -50,6 +135,8 @@ header {
 
 .product-img {
     width: 100%;
+    height: 180px;
+    object-fit: cover;
     border-radius: 8px;
 }
 
@@ -163,10 +250,6 @@ header {
     transform: translateY(-2px);
 }
 
-.swiper-slide {
-    margin-bottom: 20px;
-    /* 👈 상품 카드와 페이지네이션 사이 간격 */
-}
 
 
 .total {
